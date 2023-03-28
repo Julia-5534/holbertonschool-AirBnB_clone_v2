@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HBNB</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="/static/styles/3-header.css" rel="stylesheet">
+    <link href="/static/styles/4-common.css" rel="stylesheet">
+    <link href="/static/styles/6-filters.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="nav nav-bar">
+        <div class="container">
+          <div class="logo">
+            <img src="/static/images/logo.png" alt="AirBnB logo" width="150px">
+          </div>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#">Places to stay</a></li>
+            <li class="nav-item"><a href="#">Become a host</a></li>
+            <li class="nav-item"><a href="#">Sign up</a></li>
+            <li class="nav-item"><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="filters">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h3>State</h3>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="state" value="{{ state.id }}">
+                <label>{{ state.name }}</label>
+              </div>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="state" value="{{ state.id }}">
+                <label>{{ state.name }}</label>
+              </div>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="state" value="{{ state.id }}">
+                <label>{{ state.name }}</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <h3>Amenities</h3>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="amenity" value="{{ amenity.id }}">
+                <label>{{ amenity.name }}</label>
+              </div>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="amenity" value="{{ amenity.id }}">
+                <label>{{ amenity.name }}</label>
+              </div>
+              <div class="filter">
+                <input type="checkbox" class="input-checkbox" name="amenity" value="{{ amenity.id }}">
+                <label>{{ amenity.name }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="filter">
+                <button class="search-btn">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="places">
+      <div class="container">
+        <h1>Places</h1>
+        <section class="places-list">
+          <article class="place-card">
+            <div class="place-img">
+              <img src="https://via.placeholder.com/350x350" alt="Place image">
+              <div class="place-rate">
+               
