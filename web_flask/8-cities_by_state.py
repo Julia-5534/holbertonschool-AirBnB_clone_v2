@@ -8,17 +8,19 @@ from models.state import State
 app = Flask(__name__)
 
 
+@app.route('/cities_by_states', strict_slashes=False)
+def display_cities_by_states():
+    """ Displays a HTML page with a list of all states and their cities """
+    states = storage.all(State)
+    sorted_states_list = sorted(states.values(), key=lambda state: state.name)
+    return render_template('8-cities_by_states.html',
+                           states=sorted_states_list)
+
+
 @app.teardown_appcontext
 def close_session(exception):
     """ Closes the session after each request """
     storage.close()
-
-
-@app.route('/cities_by_states', strict_slashes=False)
-def display_cities_by_states():
-    """ Displays a HTML page with a list of all states and their cities """
-    states = sorted(storage.all(State).values(), key=lambda x: x.name)
-    return render_template('8-cities_by_states.html', states=states)
 
 
 if __name__ == '__main__':
