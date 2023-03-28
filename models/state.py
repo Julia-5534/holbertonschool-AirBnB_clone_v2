@@ -5,20 +5,18 @@ from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.city import City
 import models
+from os import getenv
 
-if models.storage_t == "db":
-    class State(BaseModel, Base):
-        """ State class """
-        __tablename__ = "states"
-        name = Column(String(128), nullable=False)
+
+
+class State(BaseModel, Base):
+    """ State class """
+    __tablename__ = "states"
+    name = Column(String(128), nullable=False)
+    if getenv('HBNB_TYPE_STORAGE') == 'db':
         cities = relationship("City", backref="state", cascade="delete")
 
-else:
-    class State(BaseModel):
-        """ State class """
-        name = ""
-        cities = []
-
+    else:
         @property
         def cities(self):
             """ Getter attribute cities that returns the list of City instances
@@ -28,7 +26,3 @@ else:
                 if city.state_id == self.id:
                     list_cities.append(city)
                 return list_cities
-
-            def __init__(self, *args, **kwargs):
-                """ Initialize a new State. """
-                super().__init__(*args, **kwargs)
