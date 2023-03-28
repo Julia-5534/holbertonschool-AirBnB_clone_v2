@@ -16,10 +16,14 @@ def filters():
     # Load states, cities, and amenities from the database and sort them
     states = sorted(list(storage.all('State').values()), key=lambda s: s.name)
     cities = sorted(list(storage.all('City').values()), key=lambda c: c.name)
-    amenities = sorted(list(storage.all('Amenity').values()), key=lambda a: a.name)
+    amenities = sorted(list(storage.all('Amenity').values()),
+                       key=lambda a: a.name)
 
     # Pass data to template and render
-    return render_template('10-hbnb_filters.html', states=states, cities=cities, amenities=amenities)
+    return render_template('10-hbnb_filters.html',
+                           states=states,
+                           cities=cities,
+                           amenities=amenities)
 
 
 @app.teardown_appcontext
