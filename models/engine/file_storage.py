@@ -62,5 +62,6 @@ class FileStorage:
                 del self.__objects[key]
 
     def close(self):
-        """Method that calls reload"""
-        self.reload()
+        """Call remove method on private __session
+        or close on public session"""
+        self.__session.close()
