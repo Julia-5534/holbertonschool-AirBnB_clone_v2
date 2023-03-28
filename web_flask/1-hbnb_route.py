@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Task 1"""
+
 from flask import Flask
 
 app = Flask(__name__)

@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""Task 3"""
+
 from flask import Flask, escape
 
 app = Flask(__name__)
